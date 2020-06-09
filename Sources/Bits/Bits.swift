@@ -11,10 +11,10 @@ import Datable
 // SimpleBits is a simplified version of Bits which uses only one byte
 public struct SimpleBits: MaybeDatable
 {
-    var buffer: UInt8
+    public var buffer: UInt8
     public var count: Int
     
-    var byteAligned: Bool
+    public var byteAligned: Bool
     {
         get
         {
@@ -72,7 +72,7 @@ public struct SimpleBits: MaybeDatable
         }
     }
     
-    var isEmpty: Bool
+    public var isEmpty: Bool
     {
         get
         {
@@ -249,8 +249,8 @@ public struct SimpleBits: MaybeDatable
 // Bits allows for packing and unpacking of both bytes and bits in relation to an array of bytes of arbitrary length
 public struct Bits: MaybeDatable
 {
-    var buffer: Data
-    var leftover: SimpleBits?
+    public var buffer: Data
+    public var leftover: SimpleBits?
     
     public var count: Int
     {
@@ -267,7 +267,7 @@ public struct Bits: MaybeDatable
         }
     }
     
-    var byteAligned: Bool
+    public var byteAligned: Bool
     {
         get
         {
@@ -275,7 +275,7 @@ public struct Bits: MaybeDatable
         }
     }
     
-    var isEmpty: Bool
+    public var isEmpty: Bool
     {
         get
         {
