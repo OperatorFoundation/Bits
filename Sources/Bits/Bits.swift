@@ -12,7 +12,7 @@ import Datable
 public struct SimpleBits: MaybeDatable
 {
     var buffer: UInt8
-    var count: Int
+    public var count: Int
     
     var byteAligned: Bool
     {
@@ -252,7 +252,7 @@ public struct Bits: MaybeDatable
     var buffer: Data
     var leftover: SimpleBits?
     
-    var count: Int
+    public var count: Int
     {
         get
         {
