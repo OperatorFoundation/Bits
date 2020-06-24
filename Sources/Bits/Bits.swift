@@ -9,7 +9,7 @@ import Foundation
 import Datable
 
 // SimpleBits is a simplified version of Bits which uses only one byte
-public struct SimpleBits: MaybeDatable
+public struct SimpleBits: MaybeDatable, Codable
 {
     public var buffer: UInt8
     public var count: Int
@@ -247,7 +247,7 @@ public struct SimpleBits: MaybeDatable
 }
 
 // Bits allows for packing and unpacking of both bytes and bits in relation to an array of bytes of arbitrary length
-public struct Bits: MaybeDatable
+public struct Bits: MaybeDatable, Codable
 {
     public var buffer: Data
     public var leftover: SimpleBits?
