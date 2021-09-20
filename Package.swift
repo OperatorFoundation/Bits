@@ -12,7 +12,7 @@ let package = Package(
             targets: ["Bits"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/OperatorFoundation/Datable.git", from: "3.0.5"),
+        .package(url: "https://github.com/OperatorFoundation/Datable.git", from: "3.0.6"),
     ],
     targets: [
         .target(

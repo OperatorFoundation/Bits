@@ -8,7 +8,7 @@
 import Foundation
 import Datable
 
-extension Bits: MaybeIntable
+extension Bits: MaybeNetworkIntable
 {
     func rightAlign(bitsNeeded: Int) -> Data?
     {
@@ -83,11 +83,11 @@ extension Bits: MaybeIntable
         return Bits(data: result)
     }
     
-    public init?(int: Int) {
-        self.init(data: int.data)
+    public init?(maybeNetworkInt: Int) {
+        self.init(data: maybeNetworkInt.data)
     }
     
-    public var int: Int? {
+    public var maybeNetworkInt: Int? {
         if count > Int.bitWidth
         {
             return nil
@@ -96,22 +96,22 @@ extension Bits: MaybeIntable
         if negative
         {
             guard let c = cleared else {return nil}
-            guard let uintNoSign = c.uint else {return nil}
+            guard let uintNoSign = c.maybeNetworkUint else {return nil}
             let int = Int(uintNoSign)
             return -int
         }
         else
         {
-            guard let uint = self.uint else {return nil}
+            guard let uint = self.maybeNetworkUint else {return nil}
             return Int(uint)
         }
     }
     
-    public init?(int8: Int8) {
-        self.init(data: int8.data)
+    public init?(maybeNetworkInt8: Int8) {
+        self.init(data: maybeNetworkInt8.data)
     }
     
-    public var int8: Int8? {
+    public var maybeNetworkInt8: Int8? {
         if count > Int8.bitWidth
         {
             return nil
@@ -120,22 +120,22 @@ extension Bits: MaybeIntable
         if negative
         {
             guard let c = cleared else {return nil}
-            guard let uint8NoSign = c.uint8 else {return nil}
+            guard let uint8NoSign = c.maybeNetworkUint8 else {return nil}
             let int8 = Int8(uint8NoSign)
             return -int8
         }
         else
         {
-            guard let uint8 = self.uint8 else {return nil}
+            guard let uint8 = self.maybeNetworkUint8 else {return nil}
             return Int8(uint8)
         }
     }
     
-    public init?(int16: Int16) {
-        self.init(data: int16.data)
+    public init?(maybeNetworkInt16: Int16) {
+        self.init(data: maybeNetworkInt16.data)
     }
     
-    public var int16: Int16? {
+    public var maybeNetworkInt16: Int16? {
         if count > Int16.bitWidth
         {
             return nil
@@ -144,22 +144,22 @@ extension Bits: MaybeIntable
         if negative
         {
             guard let c = cleared else {return nil}
-            guard let uint16NoSign = c.uint16 else {return nil}
+            guard let uint16NoSign = c.maybeNetworkUint16 else {return nil}
             let int16 = Int16(uint16NoSign)
             return -int16
         }
         else
         {
-            guard let uint16 = self.uint16 else {return nil}
+            guard let uint16 = self.maybeNetworkUint16 else {return nil}
             return Int16(uint16)
         }
     }
     
-    public init?(int32: Int32) {
-        self.init(data: int32.data)
+    public init?(maybeNetworkInt32: Int32) {
+        self.init(data: maybeNetworkInt32.data)
     }
     
-    public var int32: Int32? {
+    public var maybeNetworkInt32: Int32? {
         if count > Int32.bitWidth
         {
             return nil
@@ -168,22 +168,22 @@ extension Bits: MaybeIntable
         if negative
         {
             guard let c = cleared else {return nil}
-            guard let uint32NoSign = c.uint32 else {return nil}
+            guard let uint32NoSign = c.maybeNetworkUint32 else {return nil}
             let int32 = Int32(uint32NoSign)
             return -int32
         }
         else
         {
-            guard let uint32 = self.uint32 else {return nil}
+            guard let uint32 = self.maybeNetworkUint32 else {return nil}
             return Int32(uint32)
         }
     }
     
-    public init?(int64: Int64) {
-        self.init(data: int64.data)
+    public init?(maybeNetworkInt64: Int64) {
+        self.init(data: maybeNetworkInt64.data)
     }
     
-    public var int64: Int64? {
+    public var maybeNetworkInt64: Int64? {
         if count > Int64.bitWidth
         {
             return nil
@@ -192,22 +192,22 @@ extension Bits: MaybeIntable
         if negative
         {
             guard let c = cleared else {return nil}
-            guard let uint64NoSign = c.uint64 else {return nil}
+            guard let uint64NoSign = c.maybeNetworkUint64 else {return nil}
             let int64 = Int64(uint64NoSign)
             return -int64
         }
         else
         {
-            guard let uint64 = self.uint64 else {return nil}
+            guard let uint64 = self.maybeNetworkUint64 else {return nil}
             return Int64(uint64)
         }
     }
     
-    public init?(uint: UInt) {
-        self.init(data: uint.data)
+    public init?(maybeNetworkUint: UInt) {
+        self.init(data: maybeNetworkUint.data)
     }
     
-    public var uint: UInt? {
+    public var maybeNetworkUint: UInt? {
         if count > UInt.bitWidth
         {
             return nil
@@ -215,7 +215,7 @@ extension Bits: MaybeIntable
                 
         if byteAligned // Just bytes
         {
-            if let u64 = uint64
+            if let u64 = maybeNetworkUint64
             {
                 return UInt(u64)
             }
@@ -227,7 +227,7 @@ extension Bits: MaybeIntable
         else if buffer.count == 0 // Just bits
         {
             guard let extra = leftover else {return nil}
-            return extra.uint
+            return extra.maybeNetworkUint
         }
         else // Both bytes and bits
         {
@@ -236,11 +236,11 @@ extension Bits: MaybeIntable
         }
     }
     
-    public init?(uint8: UInt8) {
-        self.init(data: uint8.data)
+    public init?(maybeNetworkUint8: UInt8) {
+        self.init(data: maybeNetworkUint8.data)
     }
     
-    public var uint8: UInt8? {
+    public var maybeNetworkUint8: UInt8? {
         if count == 0 || count > UInt8.bitWidth
         {
             return nil
@@ -253,15 +253,15 @@ extension Bits: MaybeIntable
         else
         {
             guard let extra = leftover else {return nil}
-            return extra.uint8
+            return extra.maybeNetworkUint8
         }
     }
     
-    public init?(uint16: UInt16) {
-        self.init(data: uint16.data)
+    public init?(maybeNetworkUint16: UInt16) {
+        self.init(data: maybeNetworkUint16.data)
     }
     
-    public var uint16: UInt16? {
+    public var maybeNetworkUint16: UInt16? {
         if count == 0 || count > UInt16.bitWidth
         {
             return nil
@@ -270,7 +270,7 @@ extension Bits: MaybeIntable
         if byteAligned // Just bytes
         {
             // count <= UInt16.bitwidth && byteAligned implies 8 or 16 bits
-            if let u8 = uint8
+            if let u8 = maybeNetworkUint8
             {
                 return UInt16(u8)
             }
@@ -282,7 +282,7 @@ extension Bits: MaybeIntable
         else if buffer.count == 0 // Just bits
         {
             guard let extra = leftover else {return nil}
-            return extra.uint16
+            return extra.maybeNetworkUint16
         }
         else // Both bytes and bits
         {
@@ -291,11 +291,11 @@ extension Bits: MaybeIntable
         }
     }
     
-    public init?(uint32: UInt32) {
-        self.init(data: uint32.data)
+    public init?(maybeNetworkUint32: UInt32) {
+        self.init(data: maybeNetworkUint32.data)
     }
     
-    public var uint32: UInt32? {
+    public var maybeNetworkUint32: UInt32? {
         if count == 0 || count > UInt32.bitWidth
         {
             return nil
@@ -303,7 +303,7 @@ extension Bits: MaybeIntable
         
         if byteAligned // Just bytes
         {
-            if let u16 = uint16
+            if let u16 = maybeNetworkUint16
             {
                 return UInt32(u16)
             }
@@ -315,7 +315,7 @@ extension Bits: MaybeIntable
         else if buffer.count == 0 // Just bits
         {
             guard let extra = leftover else {return nil}
-            return extra.uint32
+            return extra.maybeNetworkUint32
         }
         else // Both bytes and bits
         {
@@ -324,11 +324,11 @@ extension Bits: MaybeIntable
         }
     }
     
-    public init?(uint64: UInt64) {
-        self.init(data: uint64.data)
+    public init?(maybeNetworkUint64: UInt64) {
+        self.init(data: maybeNetworkUint64.data)
     }
     
-    public var uint64: UInt64? {
+    public var maybeNetworkUint64: UInt64? {
         if count == 0 || count > UInt64.bitWidth
         {
             return nil
@@ -336,7 +336,7 @@ extension Bits: MaybeIntable
         
         if byteAligned // Just bytes
         {
-            if let u32 = uint32
+            if let u32 = maybeNetworkUint32
             {
                 return UInt64(u32)
             }
@@ -348,7 +348,7 @@ extension Bits: MaybeIntable
         else if buffer.count == 0 // Just bits
         {
             guard let extra = leftover else {return nil}
-            return extra.uint64
+            return extra.maybeNetworkUint64
         }
         else // Both bytes and bits
         {

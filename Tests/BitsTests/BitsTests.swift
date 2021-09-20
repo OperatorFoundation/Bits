@@ -314,43 +314,43 @@ final class BitsTests: XCTestCase
         
         let sb1 = SimpleBits(byte: 0x0F)
         
-        let uint = sb1.uint
+        let uint = sb1.maybeNetworkUint
         XCTAssertNotNil(uint)
         XCTAssertEqual(uint, correctUint)
         
-        let uint8 = sb1.uint8
+        let uint8 = sb1.maybeNetworkUint8
         XCTAssertNotNil(uint8)
         XCTAssertEqual(uint8!, correctUint8)
         
-        let uint16 = sb1.uint16
+        let uint16 = sb1.maybeNetworkUint16
         XCTAssertNotNil(uint16)
         XCTAssertEqual(uint16!, correctUint16)
 
-        let uint32 = sb1.uint32
+        let uint32 = sb1.maybeNetworkUint32
         XCTAssertNotNil(uint32)
         XCTAssertEqual(uint32!, correctUint32)
         
-        let uint64 = sb1.uint64
+        let uint64 = sb1.maybeNetworkUint64
         XCTAssertNotNil(uint64)
         XCTAssertEqual(uint64!, correctUint64)
         
-        let int = sb1.int
+        let int = sb1.maybeNetworkInt
         XCTAssertNotNil(int)
         XCTAssertEqual(int, correctInt)
         
-        let int8 = sb1.int8
+        let int8 = sb1.maybeNetworkInt8
         XCTAssertNotNil(int8)
         XCTAssertEqual(int8!, correctInt8)
         
-        let int16 = sb1.int16
+        let int16 = sb1.maybeNetworkInt16
         XCTAssertNotNil(int16)
         XCTAssertEqual(int16!, correctInt16)
 
-        let int32 = sb1.int32
+        let int32 = sb1.maybeNetworkInt32
         XCTAssertNotNil(int32)
         XCTAssertEqual(int32!, correctInt32)
         
-        let int64 = sb1.int64
+        let int64 = sb1.maybeNetworkInt64
         XCTAssertNotNil(int64)
         XCTAssertEqual(int64!, correctInt64)
     }
@@ -427,7 +427,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint8 = bits.uint8 else
+        guard let uint8 = bits.maybeNetworkUint8 else
         {
             XCTFail()
             return
@@ -446,7 +446,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint8 = bits.uint8 else
+        guard let uint8 = bits.maybeNetworkUint8 else
         {
             XCTFail()
             return
@@ -471,7 +471,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint8 = bits.uint8 else
+        guard let uint8 = bits.maybeNetworkUint8 else
         {
             XCTFail()
             return
@@ -496,7 +496,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint8 = bits.uint8 else
+        guard let uint8 = bits.maybeNetworkUint8 else
         {
             XCTFail()
             return
@@ -521,7 +521,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint16 = bits.uint16 else
+        guard let uint16 = bits.maybeNetworkUint16 else
         {
             XCTFail()
             return
@@ -546,7 +546,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint64 = bits.uint64 else
+        guard let uint64 = bits.maybeNetworkUint64 else
         {
             XCTFail()
             return
@@ -565,7 +565,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -584,7 +584,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -609,7 +609,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -634,7 +634,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -659,7 +659,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int16 = bits.int16 else
+        guard let int16 = bits.maybeNetworkInt16 else
         {
             XCTFail()
             return
@@ -684,7 +684,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int64 = bits.int64 else
+        guard let int64 = bits.maybeNetworkInt64 else
         {
             XCTFail()
             return
@@ -745,7 +745,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -806,7 +806,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -867,7 +867,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -927,7 +927,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint8 = bits.uint8 else
+        guard let uint8 = bits.maybeNetworkUint8 else
         {
             XCTFail()
             return
@@ -946,7 +946,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint8 = bits.uint8 else
+        guard let uint8 = bits.maybeNetworkUint8 else
         {
             XCTFail()
             return
@@ -971,7 +971,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint8 = bits.uint8 else
+        guard let uint8 = bits.maybeNetworkUint8 else
         {
             XCTFail()
             return
@@ -996,7 +996,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint8 = bits.uint8 else
+        guard let uint8 = bits.maybeNetworkUint8 else
         {
             XCTFail()
             return
@@ -1021,7 +1021,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint16 = bits.uint16 else
+        guard let uint16 = bits.maybeNetworkUint16 else
         {
             XCTFail()
             return
@@ -1046,7 +1046,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let uint64 = bits.uint64 else
+        guard let uint64 = bits.maybeNetworkUint64 else
         {
             XCTFail()
             return
@@ -1065,7 +1065,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -1084,7 +1084,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -1109,7 +1109,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int8 = bits.int8 else
+        guard let int8 = bits.maybeNetworkInt8 else
         {
             XCTFail()
             return
@@ -1134,7 +1134,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int16 = bits.int16 else
+        guard let int16 = bits.maybeNetworkInt16 else
         {
             XCTFail()
             return
@@ -1159,7 +1159,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int64 = bits.int64 else
+        guard let int64 = bits.maybeNetworkInt64 else
         {
             XCTFail()
             return
@@ -1184,7 +1184,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int = bits.int else
+        guard let int = bits.maybeNetworkInt else
         {
             XCTFail()
             return
@@ -1204,7 +1204,7 @@ final class BitsTests: XCTestCase
             return
         }
         
-        guard let int16 = bits.int16 else
+        guard let int16 = bits.maybeNetworkInt16 else
         {
             XCTFail()
             return
@@ -1228,7 +1228,7 @@ final class BitsTests: XCTestCase
             return
         }
          
-        guard let int = bits.int else
+        guard let int = bits.maybeNetworkInt else
         {
             XCTFail()
             return
@@ -1252,7 +1252,7 @@ final class BitsTests: XCTestCase
             return
         }
          
-        guard let result = bits.int else
+        guard let result = bits.maybeNetworkInt else
         {
             XCTFail()
             return
@@ -1429,7 +1429,7 @@ final class BitsTests: XCTestCase
             return
         }
 
-        guard let uint16 = bits.uint16 else //fails here
+        guard let uint16 = bits.maybeNetworkUint16 else //fails here
         {
             XCTFail()
             return
@@ -1451,7 +1451,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let aUint8 = a.uint8 else {
+        guard let aUint8 = a.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1464,7 +1464,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let bUint8 = b.uint8 else {
+        guard let bUint8 = b.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1477,7 +1477,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let cUint8 = c.uint8 else {
+        guard let cUint8 = c.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1489,7 +1489,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let dUint8 = d.uint8 else {
+        guard let dUint8 = d.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1501,7 +1501,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let eUint8 = e.uint8 else {
+        guard let eUint8 = e.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1513,7 +1513,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let fUint8 = f.uint8 else {
+        guard let fUint8 = f.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1528,7 +1528,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let gUint8 = g.uint8 else {
+        guard let gUint8 = g.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1540,7 +1540,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let hUint8 = h.uint8 else {
+        guard let hUint8 = h.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1554,7 +1554,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let iUint8 = i.uint8 else {
+        guard let iUint8 = i.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1566,7 +1566,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let jUint8 = j.uint8 else {
+        guard let jUint8 = j.maybeNetworkUint8 else {
             XCTFail()
             return
             
@@ -1578,7 +1578,7 @@ final class BitsTests: XCTestCase
             XCTFail()
             return
         }
-        guard let kUint8 = k.uint8 else {
+        guard let kUint8 = k.maybeNetworkUint8 else {
             XCTFail()
             return
             
