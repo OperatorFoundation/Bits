@@ -5,14 +5,14 @@ import PackageDescription
 
 let package = Package(
     name: "Bits",
-    platforms: [.macOS(.v11)],
+    platforms: [.macOS(.v10_15)],
     products: [
         .library(
             name: "Bits",
             targets: ["Bits"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/OperatorFoundation/Datable.git", from: "3.0.6"),
+        .package(url: "https://github.com/OperatorFoundation/Datable.git", from: "3.1.1"),
     ],
     targets: [
         .target(
