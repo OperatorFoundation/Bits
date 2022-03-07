@@ -136,7 +136,7 @@ public struct SimpleBits: MaybeDatable, Codable
         
         return true
     }
-    
+
     public mutating func unpackBit() -> UInt8?
     {
         // Read bit at left-most index
@@ -341,7 +341,17 @@ public struct Bits: MaybeDatable, Codable
         
         return true
     }
-    
+
+    public mutating func unpackByte() -> UInt8?
+    {
+        guard let bytes = self.unpack(bytes: 1) else
+        {
+            return nil
+        }
+
+        return bytes[0]
+    }
+
     public mutating func unpack(bytes: Int) -> Data?
     {
         guard bytes > 0 else {return nil}
