@@ -382,6 +382,19 @@ public struct Bits: MaybeDatable, Codable
         }
     }
 
+    public mutating func unpackRemainingBytes() -> Data?
+    {
+        if byteAligned
+        {
+            let count = self.buffer.count
+            return self.unpack(bytes: count)
+        }
+        else
+        {
+            return nil
+        }
+    }
+
     public mutating func pack(bit: UInt8) -> Bool
     {
         var simple = SimpleBits()
