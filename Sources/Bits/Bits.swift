@@ -7,7 +7,6 @@
 
 import Foundation
 import Datable
-import libkern
 
 // SimpleBits is a simplified version of Bits which uses only one byte
 public struct SimpleBits: MaybeDatable, Codable
@@ -330,7 +329,7 @@ public struct Bits: MaybeDatable, Codable
         let bytes = Data([byte])
         return self.pack(bytes: bytes)
     }
-    
+
     public mutating func pack(bytes: Data) -> Bool
     {
         guard bytes.count > 0 else {return true}
