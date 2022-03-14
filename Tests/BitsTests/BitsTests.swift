@@ -1587,5 +1587,25 @@ final class BitsTests: XCTestCase
         
     }
     
+    func testDropFromLeft() {
+        guard var bits = Bits(byte: 4, droppingFromLeft: 4) else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(bits.unpackBit(), 0)
+        XCTAssertEqual(bits.unpackBit(), 1)
+        XCTAssertEqual(bits.unpackBit(), 0)
+        XCTAssertEqual(bits.unpackBit(), 0)
+    }
     
+    func testDropFromRight() {
+        guard var bits = Bits(byte: 0x40, droppingFromRight: 4) else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(bits.unpackBit(), 0)
+        XCTAssertEqual(bits.unpackBit(), 1)
+        XCTAssertEqual(bits.unpackBit(), 0)
+        XCTAssertEqual(bits.unpackBit(), 0)
+    }
 }

@@ -311,6 +311,29 @@ public struct Bits: MaybeDatable, Codable
         }
     }
     
+    public init?(byte: UInt8, droppingFromLeft: UInt8) {
+        self.init()
+        let numberOfGoodBits = 8 - droppingFromLeft
+        for index in 0..<numberOfGoodBits {
+            let leftShift = droppingFromLeft + index
+            let goodBit = (byte << leftShift) >> 7
+            guard self.pack(bit: goodBit) else {
+                return nil
+            }
+        }
+    }
+    
+    public init?(byte: UInt8, droppingFromRight: UInt8) {
+        self.init()
+        let numberOfGoodBits = 8 - droppingFromRight
+        for index in 0..<numberOfGoodBits {
+            let goodBit = (byte << index) >> 7
+            guard self.pack(bit: goodBit) else {
+                return nil
+            }
+        }
+    }
+    
     public var data: Data
     {
         get
