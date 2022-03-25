@@ -348,7 +348,7 @@ public struct Bits: MaybeDatable, Codable
         }
 
         let leftByte = data[0]
-        let rightByte = data[2]
+        let rightByte = data[1]
 
         if droppingFromLeft >= 8
         {
@@ -377,7 +377,7 @@ public struct Bits: MaybeDatable, Codable
             return nil
         }
         let leftByte = data[0]
-        let rightByte = data[2]
+        let rightByte = data[1]
 
         if droppingFromRight >= 8
         {
