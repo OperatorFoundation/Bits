@@ -333,7 +333,70 @@ public struct Bits: MaybeDatable, Codable
             }
         }
     }
-    
+
+    public init?(bytes: UInt16, droppingFromLeft: UInt8) {
+        self.init()
+
+        guard droppingFromLeft <= 16 else
+        {
+            return nil
+        }
+
+        guard let data = bytes.maybeNetworkData else
+        {
+            return nil
+        }
+
+        let leftByte = data[0]
+        let rightByte = data[2]
+
+        if droppingFromLeft >= 8
+        {
+            self.init(byte: rightByte, droppingFromLeft: droppingFromLeft - 8)
+        }
+        else
+        {
+            self.init(byte: leftByte, droppingFromLeft: droppingFromLeft)
+            guard self.pack(byte: rightByte) else
+            {
+                return nil
+            }
+        }
+    }
+
+    public init?(bytes: UInt16, droppingFromRight: UInt8) {
+        self.init()
+
+        guard droppingFromRight <= 16 else
+        {
+            return nil
+        }
+
+        guard let data = bytes.maybeNetworkData else
+        {
+            return nil
+        }
+        let leftByte = data[0]
+        let rightByte = data[2]
+
+        if droppingFromRight >= 8
+        {
+            self.init(byte: leftByte, droppingFromRight: droppingFromRight - 8)
+        }
+        else
+        {
+            self.init(byte: leftByte, droppingFromRight: 0)
+            guard let bits = Bits(byte: rightByte, droppingFromRight: droppingFromRight - 8) else
+            {
+                return nil
+            }
+            guard self.pack(bits: bits) else
+            {
+                return nil
+            }
+        }
+    }
+
     public var data: Data
     {
         get
