@@ -1,18 +1,18 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "Bits",
-    platforms: [.macOS(.v10_15)],
+    platforms: [.macOS(.v10_15), .iOS(.v15)],
     products: [
         .library(
             name: "Bits",
             targets: ["Bits"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/OperatorFoundation/Datable.git", from: "3.1.1"),
+        .package(url: "https://github.com/OperatorFoundation/Datable.git", branch: "main"),
     ],
     targets: [
         .target(
