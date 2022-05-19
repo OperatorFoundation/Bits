@@ -5,7 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "Bits",
-    platforms: [.macOS(.v10_15), .iOS(.v15)],
+    platforms: [.macOS(.v10_15),
+                      .iOS(.v15)
+                     ],
     products: [
         .library(
             name: "Bits",
