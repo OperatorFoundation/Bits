@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Bits",
     platforms: [
-	.macOS(.v113),
+	.macOS(.v13),
         .iOS(.v15)
     ],
     products: [
