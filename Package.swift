@@ -1,13 +1,14 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.8
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "Bits",
-    platforms: [.macOS(.v10_15),
-                      .iOS(.v15)
-                     ],
+    platforms: [
+	.macOS(.v113),
+        .iOS(.v15)
+    ],
     products: [
         .library(
             name: "Bits",
