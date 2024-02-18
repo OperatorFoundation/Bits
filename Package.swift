@@ -15,7 +15,7 @@ let package = Package(
             targets: ["Bits"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/OperatorFoundation/Datable", branch: "4.0.1"),
+        .package(url: "https://github.com/OperatorFoundation/Datable", from: "4.0.1"),
     ],
     targets: [
         .target(
